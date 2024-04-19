@@ -8,12 +8,19 @@ var wp = new WPAPI({
     password: 'IgE#7jTy^Goax#%8o0Dy0CgH'
 });
 
-//creating a demo post
-wp.posts().create({
-    title: 'Title',
-    content: 'Example content',
-    status: 'publish'
-}).then(function( response ) {
-    // "response" will hold all properties of your newly-created post,
-    console.log( response.id );
-})
+// Function to create a demo post
+async function createDemoPost() {
+    try {
+        const response = await wp.posts().create({
+            title: 'Title',
+            content: 'Example content',
+            status: 'publish'
+        });
+        console.log('Post created successfully. Post ID:', response.id);
+    } catch (error) {
+        console.error('Error creating post:', error);
+    }
+}
+
+// Call the function to create the demo post
+createDemoPost();
