@@ -10,7 +10,7 @@ var wp = new WPAPI({
 });
 
 // Function to create a demo post
-async function createDemoPost() {
+async function createWordpressPost() {
     try {
         console.log('creating demo post...')
         const response = await wp.posts().create({
@@ -25,4 +25,4 @@ async function createDemoPost() {
 }
 
 // Call the function to create the demo post
-createDemoPost();
+createWordpressPost();
